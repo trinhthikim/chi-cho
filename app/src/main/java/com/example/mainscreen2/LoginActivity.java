@@ -14,15 +14,14 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.material.textfield.TextInputLayout;
 
-public class Login_Form extends AppCompatActivity{
+public class LoginActivity extends AppCompatActivity{
 //    EditText edtUserName, edtPass;
 //    Button btnLogIn;
 
-    EditText name, password;
+    EditText name, password, passError;
     Button login;
     TextView create_acc;
     boolean isPasswordValid;
-    TextInputLayout passError;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,17 +36,23 @@ public class Login_Form extends AppCompatActivity{
 //        passError = (TextInputLayout) findViewById(R.id.passError);
 
         login.setOnClickListener(new View.OnClickListener() {
+
+            //            public void onClick(View v) {
+//                SetValidation();
+//            }
             @Override
             public void onClick(View v) {
-                SetValidation();
+                // chuyen den Trang chu
+                Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+                startActivity(intent);
             }
         });
 
         create_acc.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // redirect to RegisterActivity
-                Intent intent = new Intent(getApplicationContext(), Signup_Form.class);
+                // chuyen den Trang Dang Ky
+                Intent intent = new Intent(LoginActivity.this, SignupActivity.class);
                 startActivity(intent);
             }
         });
@@ -55,17 +60,21 @@ public class Login_Form extends AppCompatActivity{
 
     public void SetValidation() {
         // Check for a valid password.
-        if (password.getText().toString().isEmpty()) {
-            passError.setError(getResources().getString(R.string.password_error));
-            isPasswordValid = false;
-        } else if (password.getText().length() < 6) {
-            passError.setError(getResources().getString(R.string.error_invalid_password));
-            isPasswordValid = false;
-        } else  {
-            isPasswordValid = true;
-            passError.setErrorEnabled(false);
-        }
-
+//        if (password.getText().toString().isEmpty()) {
+//            passError.setError(getResources().getString(R.string.password_error));
+//            isPasswordValid = false;
+//        } else if (password.getText().length() < 6) {
+//            passError.setError(getResources().getString(R.string.error_invalid_password));
+//            isPasswordValid = false;
+//        } else  {
+//            isPasswordValid = true;
+//            passError.setErrorEnabled(false);
+//        }
+//
+//        if (isPasswordValid) {
+//            Toast.makeText(getApplicationContext(), "Successfully", Toast.LENGTH_SHORT).show();
+//
+//        }
 
     }
 
