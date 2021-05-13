@@ -38,7 +38,7 @@ public class SignupActivity extends AppCompatActivity {
             public void onClick(View v) {
                 // chuyen den Trang đăng ký
                 Intent intent1 = new Intent(SignupActivity.this, LoginActivity.class);
-                startActivity(intent1);
+                SignupActivity.this.startActivity(intent1);
             }
         });
 
@@ -47,7 +47,7 @@ public class SignupActivity extends AppCompatActivity {
             public void onClick(View v) {
                 // chuyen den Trang Dang Ky
                 Intent intent2 = new Intent(SignupActivity.this, LoginActivity.class);
-                startActivity(intent2);
+                SignupActivity.this.startActivity(intent2);
             }
         });
     }

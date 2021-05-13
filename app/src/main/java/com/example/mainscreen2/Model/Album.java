@@ -1,13 +1,15 @@
 package com.example.mainscreen2.Model;
 //-----------------------------------com.example.mainscreen2.Model.AlbumSuggest.java-----------------------------------
-        //package com.example.mainscreen2.Model;
+//package com.example.mainscreen2.Model;
 
 import javax.annotation.Generated;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
+import java.io.Serializable;
+
 @Generated("jsonschema2pojo")
-public class Album {
+public class Album implements Serializable {
 
     @SerializedName("Album_id")
     @Expose
