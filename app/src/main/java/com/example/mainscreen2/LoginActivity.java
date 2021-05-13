@@ -15,13 +15,11 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.google.android.material.textfield.TextInputLayout;
 
 public class LoginActivity extends AppCompatActivity{
-//    EditText edtUserName, edtPass;
-//    Button btnLogIn;
 
-    EditText name, password, passError;
-    Button login;
-    TextView create_acc;
-    boolean isPasswordValid;
+    private EditText name, password, passError;
+    private Button login;
+    private TextView create_acc;
+    private boolean isPasswordValid;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,14 +35,14 @@ public class LoginActivity extends AppCompatActivity{
 
         login.setOnClickListener(new View.OnClickListener() {
 
-            //            public void onClick(View v) {
+            // public void onClick(View v) {
 //                SetValidation();
 //            }
             @Override
             public void onClick(View v) {
                 // chuyen den Trang chu
-                Intent intent = new Intent(LoginActivity.this, MainActivity.class);
-                startActivity(intent);
+                Intent intent1 = new Intent(LoginActivity.this, MainActivity.class);
+                startActivity(intent1);
             }
         });
 
@@ -52,8 +50,8 @@ public class LoginActivity extends AppCompatActivity{
             @Override
             public void onClick(View v) {
                 // chuyen den Trang Dang Ky
-                Intent intent = new Intent(LoginActivity.this, SignupActivity.class);
-                startActivity(intent);
+                Intent intent2 = new Intent(LoginActivity.this, SignupActivity.class);
+                startActivity(intent2);
             }
         });
     }
@@ -78,11 +76,5 @@ public class LoginActivity extends AppCompatActivity{
 
     }
 
-//    private void anhxa() {
-//
-//        edtUserName = (EditText)findViewById(R.id.edt_name);
-//        edtPass = (EditText)findViewById(R.id.edt_pass);
-//        btnLogIn = (Button)findViewById(R.id.btn_logIn);
-//    }
 }
 

@@ -70,7 +70,7 @@
         android:ems="10"
         android:foregroundTint="#fff"
         android:hint="@string/prompt_password"
-        android:inputType="textPersonName"
+        android:inputType="textPassword"
         android:padding="8dp"
         android:textColorHint="#0E0E0E"
         android:textSize="17sp"
@@ -112,7 +112,7 @@
         android:layout_marginBottom="30dp"
         android:layout_marginLeft="5dp"
         android:textSize="16sp"
-        android:text="@string/login"
+        android:text="@string/login_account"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toEndOf="@+id/tv_acc"></TextView>
 
