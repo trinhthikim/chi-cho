@@ -38,7 +38,7 @@
 //
 //    @NonNull
 //    @Override
-//    public Object instantiateItem(@NonNull ViewGroup container, int position) {
+//    public Object instantiateItem(@NonNull ViewGroup container, Banner banner = banners.get(position);) {
 //        View view =LayoutInflater.from(container.getContext()).inflate(R.layout.fragment_banner, container, false);
 //        ImageView sliderLayout = view.findViewById(R.id.auto_slider);
 //
