@@ -6,6 +6,6 @@
 - Những file php được đặt trong xampp/htdocs/LoginRegister
 - Mở cmd:
   - Nhập ipconfig
-  - Tìm chỗ Wireless LAN adapter WiFi: Tìm IPv4 Address: 192.168.1.8 (các máy khác nhau)
-  - Thay dãy IP này vào dãy số chỗ đường link 
+  - Tìm chỗ Wireless LAN adapter WiFi: Tìm IPv4 Address (các máy khác nhau)
+  - Thay dãy IP đó vào dãy số 192.168.1.8 chỗ đường link 
       - PutData putData = new PutData("http://192.168.1.8/LoginRegister/login.php", "POST", field, data); trong 2 file SignupActivity.java và LoginActivity.java
