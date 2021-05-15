@@ -12,6 +12,7 @@
         android:layout_width="325dp"
         android:layout_height="325dp"
         android:layout_marginBottom="32dp"
+        android:scaleType="fitStart"
         app:layout_constraintBottom_toTopOf="@+id/edt_name"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -58,6 +59,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"></EditText>
 
+
     <TextView
         android:id="@+id/tv_forgotPass"
         android:layout_width="wrap_content"
@@ -74,7 +76,7 @@
         android:id="@+id/btn_logIn"
         android:layout_width="128dp"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="40dp"
+        android:layout_marginBottom="30dp"
         android:text="@string/login"
         android:background="@drawable/button_rounded"
         android:textAllCaps="false"

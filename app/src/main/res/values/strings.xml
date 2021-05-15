@@ -24,7 +24,7 @@
     <string name="login">Login</string>
     <string name="register">Register</string>
 <!--    <string name="create_new">Click here for register</string>-->
-    <string name="forgot_pass">Forgot Password</string>
+    <string name="forgot_pass">Forgot Password?</string>
     <string name="not_register">Not Register?</string>
     <string name="name">Name</string>
     <string name="phone_number">Phone Number</string>
