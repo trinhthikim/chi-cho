@@ -18,6 +18,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:srcCompat="@drawable/anh1"></ImageView>
 
+
     <EditText
         android:id="@+id/edt_name"
         android:layout_width="325dp"
@@ -109,6 +110,15 @@
         android:text="@string/create_account"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toEndOf="@+id/tv_acc"></TextView>
+
+    <ProgressBar
+        android:id="@+id/progress"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        app:layout_constraintBottom_toTopOf="@+id/img_avt"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"></ProgressBar>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 

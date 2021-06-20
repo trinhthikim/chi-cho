@@ -10,12 +10,17 @@ import com.example.mainscreen2.Model.User;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
+import java.util.HashMap;
 import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.converter.gson.GsonConverterFactory;
 import retrofit2.Retrofit;
+import retrofit2.http.Field;
+import retrofit2.http.FieldMap;
+import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
+import retrofit2.http.POST;
 
 //Link API: https://musicplay0123456789.000webhostapp.com/Server/banner.php
 //https://musicplay0123456789.000webhostapp.com/Server/Banner.php
@@ -49,4 +54,11 @@ public interface ApiService {
 
     @GET("Song.php")
     Call<List<Song>> getDataSong();
+
+//    @POST("register.php")
+//    Call<RegistrationResponseModel> register(@FieldMap HashMap<String, String> params);
+//
+//    @FormUrlEncoded
+//    @POST("login.php")
+//    Call<LoginResponseModel> login(@Field("email") String email, @Field("password") String password);
 }

@@ -9,6 +9,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -18,9 +19,10 @@ import com.vishnusivadas.advanced_httpurlconnection.PutData;
 
 public class SignupActivity extends AppCompatActivity {
 
-    private EditText name, email_1, password_1;
-    private Button register;
-    private TextView login_acc;
+    EditText name, email_1, password_1;
+    Button register;
+    TextView login_acc;
+    ProgressBar progressBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,6 +34,7 @@ public class SignupActivity extends AppCompatActivity {
         password_1 = (EditText) findViewById(R.id.edt_pass);
         register = (Button) findViewById(R.id.btn_register);
         login_acc = (TextView) findViewById(R.id.tv_login);
+        progressBar = (ProgressBar) findViewById(R.id.progress);
 
         register.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -44,28 +47,31 @@ public class SignupActivity extends AppCompatActivity {
 
                 if(!username.equals("") && !password.equals("") && !email.equals("")) {
                     //Start ProgressBar first (Set visibility VISIBLE)
+                    progressBar.setVisibility(View.VISIBLE);
                     Handler handler = new Handler(Looper.getMainLooper());
                     handler.post(new Runnable() {
                         @Override
                         public void run() {
-                            //Starting Write and Read data with URL
-                            //Creating array for parameters
+
                             String[] field = new String[3];
                             field[0] = "username";
                             field[1] = "email";
                             field[2] = "password";
-                            //Creating array for data
+
                             String[] data = new String[3];
                             data[0] = username;
                             data[1] = email;
                             data[2] = password;
                             PutData putData = new PutData("http://192.168.1.8/LoginRegister/signup.php", "POST", field, data);
+//                            PutData putData = new PutData("https://musicplay0123456789.000webhostapp.com/Server/LoginRegister/signup.php", "POST", field, data);
                             if (putData.startPut()) {
                                 if (putData.onComplete()) {
+                                    progressBar.setVisibility(View.GONE);
+
                                     String result = putData.getResult();
                                     if (result.equals("Sign Up Success")) {
                                         Toast.makeText(getApplicationContext(), result, Toast.LENGTH_SHORT).show();
-                                        // chuyen den Trang đăng ký
+                                        // chuyen den Trang đăng nhap
                                         Intent intent1 = new Intent(getApplicationContext(), LoginActivity.class);
                                         startActivity(intent1);
                                         finish();
@@ -74,7 +80,6 @@ public class SignupActivity extends AppCompatActivity {
                                     }
                                 }
                             }
-                            //End Write and Read data with URL
                         }
                     });
                 }
