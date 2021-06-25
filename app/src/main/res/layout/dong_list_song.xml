@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:elevation="5dp">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="10dp"
+        >
+        <TextView
+            android:layout_margin="15dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20dp"
+            android:text="1"
+            android:id="@+id/textviewlistindex"/>
+        <TextView
+            android:maxWidth="250dp"
+            android:ellipsize="end"
+            android:layout_toRightOf="@+id/textviewlistindex"
+            android:singleLine="true"
+            android:textColor="#030303"
+            android:text="Tên ca khúc"
+            android:textSize="20sp"
+            android:id="@+id/textviewnamesong"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/textviewnamesinger"
+            android:layout_below="@+id/textviewnamesong"
+            android:layout_toRightOf="@+id/textviewlistindex"
+            android:ellipsize="end"
+            android:singleLine="true"
+            android:textColor="#979797"
+            android:textSize="20sp"
+            android:text="Tên ca sĩ"/>
+        <ImageView
+            android:layout_marginRight="5dp"
+            android:src="@drawable/iconlove"
+            android:id="@+id/imageviewlikelistsong"
+            android:layout_centerVertical="true"
+            android:layout_alignParentRight="true"
+            android:layout_width="30dp"
+            android:layout_height="30dp"/>
+
+    </RelativeLayout>
+</androidx.cardview.widget.CardView>

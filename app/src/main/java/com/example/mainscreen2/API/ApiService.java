@@ -15,7 +15,10 @@ import java.util.List;
 import retrofit2.Call;
 import retrofit2.converter.gson.GsonConverterFactory;
 import retrofit2.Retrofit;
+import retrofit2.http.Field;
+import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
+import retrofit2.http.POST;
 
 //Link API: https://musicplay0123456789.000webhostapp.com/Server/banner.php
 //https://musicplay0123456789.000webhostapp.com/Server/Banner.php
@@ -32,7 +35,7 @@ public interface ApiService {
     @GET("Banner.php")
     Call<List<Banner>> getDataBanner();
 
-    @GET("User.php")
+    @GET("GetUser.php")
     Call<List<User>> getDataUser();
 
     @GET("AlbumSuggest.php")
@@ -49,4 +52,8 @@ public interface ApiService {
 
     @GET("Song.php")
     Call<List<Song>> getDataSong();
+
+    @FormUrlEncoded
+    @POST("SongToAlbum.php")
+    Call<List<Song>> getDataSongToAlbum(@Field("idAlbum") String idAlbum);
 }
