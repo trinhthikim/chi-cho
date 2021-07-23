@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F7F7F7"
+    tools:context=".SignupActivity">
+
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="325dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:gravity="center"
+        android:text="Create Account"
+        android:textColor="#000"
+        android:textSize="35dp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.523"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"></TextView>
+
+    <EditText
+        android:id="@+id/username"
+        android:layout_width="325dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="32dp"
+        android:background="@drawable/input_bg"
+        android:backgroundTint="#fff"
+        android:drawableLeft="@drawable/info_name"
+        android:drawablePadding="8dp"
+        android:ems="10"
+        android:foregroundTint="#fff"
+        android:hint="Name"
+        android:inputType="textPersonName"
+        android:padding="8dp"
+        android:textColorHint="#0E0E0E"
+        android:textSize="17sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.523"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView"></EditText>
+
+    <EditText
+        android:id="@+id/email"
+        android:layout_width="325dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="32dp"
+        android:background="@drawable/input_bg"
+        android:backgroundTint="#fff"
+        android:drawableLeft="@drawable/info_email"
+        android:drawablePadding="8dp"
+        android:ems="10"
+        android:foregroundTint="#fff"
+        android:hint="@string/prompt_email"
+        android:inputType="textPersonName"
+        android:padding="8dp"
+        android:textColorHint="#0E0E0E"
+        android:textSize="17sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.523"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/username"></EditText>
+
+    <EditText
+        android:id="@+id/password"
+        android:layout_width="325dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="32dp"
+        android:background="@drawable/input_bg"
+        android:backgroundTint="#fff"
+        android:drawableLeft="@drawable/info_pass"
+        android:drawablePadding="8dp"
+        android:ems="10"
+        android:foregroundTint="#fff"
+        android:hint="@string/prompt_password"
+        android:inputType="textPassword"
+        android:padding="8dp"
+        android:textColorHint="#0E0E0E"
+        android:textSize="17sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/email"></EditText>
+
+    <EditText
+        android:id="@+id/repassword"
+        android:layout_width="325dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="32dp"
+        android:background="@drawable/input_bg"
+        android:backgroundTint="#fff"
+        android:drawableLeft="@drawable/info_pass"
+        android:drawablePadding="8dp"
+        android:ems="10"
+        android:foregroundTint="#fff"
+        android:hint="Password confirm"
+        android:inputType="textPassword"
+        android:padding="8dp"
+        android:textColorHint="#0E0E0E"
+        android:textSize="17sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/password"></EditText>
+
+    <Button
+        android:id="@+id/btn_register"
+        android:layout_width="128dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:layout_marginBottom="32dp"
+        android:background="@drawable/button_rounded"
+        android:text="@string/register"
+        android:textAllCaps="false"
+        android:textColor="#0E0E0E"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/tv_acc"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/repassword"></Button>
+
+    <TextView
+        android:id="@+id/tv_acc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:text="You have an account?"
+        android:textColor="#738D9A"
+        android:textSize="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_register"></TextView>
+
+    <TextView
+        android:id="@+id/tv_login"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="102dp"
+        android:text="@string/login_account"
+        android:textSize="20sp"
+        app:layout_constraintStart_toEndOf="@+id/tv_acc"
+        app:layout_constraintTop_toBottomOf="@+id/repassword"></TextView>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

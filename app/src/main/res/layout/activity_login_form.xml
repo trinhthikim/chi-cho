@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F7F7F7"
+    tools:context=".LoginActivity">
+
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:gravity="center"
+        android:text="Wellcom back"
+        android:textColor="#000"
+        android:textSize="35dp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"></TextView>
+
+
+    <EditText
+        android:id="@+id/edt_name"
+        android:layout_width="325dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="44dp"
+        android:background="@drawable/input_bg"
+        android:backgroundTint="#fff"
+        android:drawableLeft="@drawable/info_name"
+        android:drawablePadding="8dp"
+        android:ems="10"
+        android:foregroundTint="#fff"
+        android:hint="Email"
+        android:inputType="textPersonName"
+        android:padding="8dp"
+        android:textColorHint="#0E0E0E"
+        android:textSize="17sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView2"></EditText>
+
+    <EditText
+        android:id="@+id/edt_pass"
+        android:layout_width="325dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="32dp"
+        android:background="@drawable/input_bg"
+        android:backgroundTint="#fff"
+        android:drawableLeft="@drawable/info_pass"
+        android:drawablePadding="8dp"
+        android:ems="10"
+        android:foregroundTint="#fff"
+        android:hint="@string/prompt_password"
+        android:inputType="textPassword"
+        android:padding="8dp"
+        android:textColorHint="#0E0E0E"
+        android:textSize="17sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/edt_name"></EditText>
+
+
+    <TextView
+        android:id="@+id/tv_forgotPass"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:text="@string/forgot_pass"
+        android:textColor="#78909C"
+        android:textSize="15sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/edt_pass"></TextView>
+
+    <Button
+        android:id="@+id/btn_logIn"
+        android:layout_width="128dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:background="@drawable/button_rounded"
+        android:text="@string/login"
+        android:textAllCaps="false"
+        android:textColor="#0E0E0E"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_forgotPass"></Button>
+
+    <TextView
+        android:id="@+id/tv_acc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:text="Don't have an account?"
+        android:textColor="#738D9A"
+        android:textSize="13sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.417"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_logIn"></TextView>
+
+    <TextView
+        android:id="@+id/tv_create"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="32dp"
+        android:text="@string/create_account"
+        android:textSize="16sp"
+        app:layout_constraintStart_toEndOf="@+id/tv_acc"
+        app:layout_constraintTop_toBottomOf="@+id/btn_logIn"></TextView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
