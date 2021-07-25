@@ -75,10 +75,9 @@ public class ListSongActivity extends AppCompatActivity {
         }
         if(category != null && !category.getCategoryName().equals("")){
             setValueInView(category.getCategoryName(), category.getCategoryImageUrl());
-//            getDataCategory(category.getCategoryId());
+            getDataCategory(category.getCategoryId());
         }
         if(singer != null && !singer.getSingerName().equals("")){
-            Log.d("id", singer.getSingerBannerUrl());
             setValueInView(singer.getSingerName(), singer.getSingerBannerUrl());
             getDataSinger(singer.getSingerId());
         }
@@ -100,7 +99,7 @@ public class ListSongActivity extends AppCompatActivity {
         Picasso.with(this).load(hinh).into(imglistsong);
     }
     private void getDataAlbum(String idAlbum){
-        Log.d("id", idAlbum);
+        Log.d("idAlbum", idAlbum);
         ApiService.apiService.getDataSongToAlbum(idAlbum).enqueue(new Callback<List<Song>>() {
             @Override
             public void onResponse(Call<List<Song>> call, Response<List<Song>> response) {
@@ -119,7 +118,7 @@ public class ListSongActivity extends AppCompatActivity {
     }
 
     private void getDataPlaylist(String idPlaylist){
-        Log.d("id", idPlaylist);
+        Log.d("idPlaylist", idPlaylist);
         ApiService.apiService.getDataSongToPlaylist(idPlaylist).enqueue(new Callback<List<Song>>() {
             @Override
             public void onResponse(Call<List<Song>> call, Response<List<Song>> response) {
@@ -140,14 +139,12 @@ public class ListSongActivity extends AppCompatActivity {
     }
 
     private void getDataCategory(String idCategory){
-        Log.d("id", idCategory);
+        Log.d("idCategory", idCategory);
         ApiService.apiService.getDataSongToCategory(idCategory).enqueue(new Callback<List<Song>>() {
             @Override
             public void onResponse(Call<List<Song>> call, Response<List<Song>> response) {
                 Log.d("Song To Category", "Call Api Success");
                 songs = (ArrayList<Song>) response.body();
-
-                Log.d("reponse", songs.toString());
                 listSongAdapter = new ListSongAdapter(ListSongActivity.this, songs);
                 recyclerViewListSong.setAdapter(listSongAdapter);
                 recyclerViewListSong.setLayoutManager(new LinearLayoutManager(ListSongActivity.this));
@@ -161,7 +158,7 @@ public class ListSongActivity extends AppCompatActivity {
     }
 
     private void getDataSinger(String idSinger){
-        Log.d("id", idSinger);
+        Log.d("idSinger", idSinger);
         ApiService.apiService.getDataSongToSinger(idSinger).enqueue(new Callback<List<Song>>() {
             @Override
             public void onResponse(Call<List<Song>> call, Response<List<Song>> response) {
@@ -217,7 +214,7 @@ public class ListSongActivity extends AppCompatActivity {
                 Toast.makeText(this, playlist.getPlaylistName(), Toast.LENGTH_SHORT).show();
             }
             if (intent.hasExtra("category")) {
-                playlist = (Playlist) intent.getSerializableExtra("category");
+                category = (Category) intent.getSerializableExtra("category");
                 Toast.makeText(this, category.getCategoryName(), Toast.LENGTH_SHORT).show();
             }
             if (intent.hasExtra("singer")) {

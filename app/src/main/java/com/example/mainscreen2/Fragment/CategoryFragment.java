@@ -44,6 +44,7 @@ public class CategoryFragment extends Fragment {
             public void onResponse(Call<List<Category>> call, Response<List<Category>> response) {
                 Log.d("Category", "Call Api Success");
                 categorys = (ArrayList<Category>) response.body();
+
                 adapter = new CategoryAdapter(categorys, getContext());
                 LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false);
                 linearLayoutManager.scrollToPosition(0);

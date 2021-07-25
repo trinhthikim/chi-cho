@@ -62,7 +62,7 @@ public interface ApiService {
     Call<List<Song>> getDataSongToPlaylist(@Field("idPlaylist") String idPlaylist);
 
     @FormUrlEncoded
-    @POST("SongToCategor.php")
+    @POST("SongToCategory.php")
     Call<List<Song>> getDataSongToCategory(@Field("idCategory") String idCategory);
 
     @FormUrlEncoded

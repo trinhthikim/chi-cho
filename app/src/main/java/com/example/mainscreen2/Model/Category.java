@@ -13,7 +13,7 @@ public class Category implements Serializable {
 
     @SerializedName("category_id")
     @Expose
-    private Object categoryId;
+    private String categoryId;
     @SerializedName("topic_id")
     @Expose
     private String topicId;
@@ -24,11 +24,11 @@ public class Category implements Serializable {
     @Expose
     private String categoryImageUrl;
 
-    public Object getCategoryId() {
+    public String getCategoryId() {
         return categoryId;
     }
 
-    public void setCategoryId(Object categoryId) {
+    public void setCategoryId(String categoryId) {
         this.categoryId = categoryId;
     }
 
