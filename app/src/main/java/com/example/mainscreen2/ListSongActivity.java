@@ -21,8 +21,12 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.mainscreen2.API.ApiService;
 import com.example.mainscreen2.Adapter.ListSongAdapter;
+import com.example.mainscreen2.Adapter.PlaylistAdapter;
 import com.example.mainscreen2.Adapter.SongAdapter;
 import com.example.mainscreen2.Model.Album;
+import com.example.mainscreen2.Model.Category;
+import com.example.mainscreen2.Model.Playlist;
+import com.example.mainscreen2.Model.Singer;
 import com.example.mainscreen2.Model.Song;
 import com.google.android.material.appbar.CollapsingToolbarLayout;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -46,6 +50,9 @@ public class ListSongActivity extends AppCompatActivity {
     RecyclerView recyclerViewListSong;
     FloatingActionButton floatingActionButton;
     Album album;
+    Playlist playlist;
+    Category category;
+    Singer singer;
     ImageView imglistsong;
 
     ArrayList<Song> songs;
@@ -61,6 +68,19 @@ public class ListSongActivity extends AppCompatActivity {
         if(album != null && !album.getAlbumName().equals("")){
             setValueInView(album.getAlbumName(), album.getAlbumImageUrl());
             getDataAlbum(album.getAlbumId());
+        }
+        if(playlist != null && !playlist.getPlaylistName().equals("")){
+            setValueInView(playlist.getPlaylistName(), playlist.getPlaylistImageUrl());
+            getDataPlaylist(playlist.getPlaylistId());
+        }
+        if(category != null && !category.getCategoryName().equals("")){
+            setValueInView(category.getCategoryName(), category.getCategoryImageUrl());
+//            getDataCategory(category.getCategoryId());
+        }
+        if(singer != null && !singer.getSingerName().equals("")){
+            Log.d("id", singer.getSingerBannerUrl());
+            setValueInView(singer.getSingerName(), singer.getSingerBannerUrl());
+            getDataSinger(singer.getSingerId());
         }
     }
     private void  setValueInView(String ten, String hinh){
@@ -79,24 +99,88 @@ public class ListSongActivity extends AppCompatActivity {
         }
         Picasso.with(this).load(hinh).into(imglistsong);
     }
-    private void  getDataAlbum(String idAlbum){
+    private void getDataAlbum(String idAlbum){
+        Log.d("id", idAlbum);
         ApiService.apiService.getDataSongToAlbum(idAlbum).enqueue(new Callback<List<Song>>() {
             @Override
             public void onResponse(Call<List<Song>> call, Response<List<Song>> response) {
-                Log.d("Song", "Call Api Success");
+                Log.d("Song To Album", "Call Api Success");
                 songs = (ArrayList<Song>) response.body();
-                Log.d("song to album", songs.get(0).getSongName());
                 listSongAdapter = new ListSongAdapter(ListSongActivity.this, songs);
-                recyclerViewListSong.setLayoutManager(new LinearLayoutManager(ListSongActivity.this));
                 recyclerViewListSong.setAdapter(listSongAdapter);
+                recyclerViewListSong.setLayoutManager(new LinearLayoutManager(ListSongActivity.this));
             }
 
             @Override
             public void onFailure(Call<List<Song>> call, Throwable t) {
-                Log.d("Song", "Call Api Error");
+                Log.d("Song To Album", "Call Api Error");
             }
         });
     }
+
+    private void getDataPlaylist(String idPlaylist){
+        Log.d("id", idPlaylist);
+        ApiService.apiService.getDataSongToPlaylist(idPlaylist).enqueue(new Callback<List<Song>>() {
+            @Override
+            public void onResponse(Call<List<Song>> call, Response<List<Song>> response) {
+                Log.d("Song To Playlist", "Call Api Success");
+                songs = (ArrayList<Song>) response.body();
+
+                Log.d("reponse", songs.toString());
+                listSongAdapter = new ListSongAdapter(ListSongActivity.this, songs);
+                recyclerViewListSong.setAdapter(listSongAdapter);
+                recyclerViewListSong.setLayoutManager(new LinearLayoutManager(ListSongActivity.this));
+            }
+
+            @Override
+            public void onFailure(Call<List<Song>> call, Throwable t) {
+                Log.d("Song To Playlist", "Call Api Error");
+            }
+        });
+    }
+
+    private void getDataCategory(String idCategory){
+        Log.d("id", idCategory);
+        ApiService.apiService.getDataSongToCategory(idCategory).enqueue(new Callback<List<Song>>() {
+            @Override
+            public void onResponse(Call<List<Song>> call, Response<List<Song>> response) {
+                Log.d("Song To Category", "Call Api Success");
+                songs = (ArrayList<Song>) response.body();
+
+                Log.d("reponse", songs.toString());
+                listSongAdapter = new ListSongAdapter(ListSongActivity.this, songs);
+                recyclerViewListSong.setAdapter(listSongAdapter);
+                recyclerViewListSong.setLayoutManager(new LinearLayoutManager(ListSongActivity.this));
+            }
+
+            @Override
+            public void onFailure(Call<List<Song>> call, Throwable t) {
+                Log.d("Song To Category", "Call Api Error");
+            }
+        });
+    }
+
+    private void getDataSinger(String idSinger){
+        Log.d("id", idSinger);
+        ApiService.apiService.getDataSongToSinger(idSinger).enqueue(new Callback<List<Song>>() {
+            @Override
+            public void onResponse(Call<List<Song>> call, Response<List<Song>> response) {
+                Log.d("Song To Singer", "Call Api Success");
+                songs = (ArrayList<Song>) response.body();
+
+                Log.d("reponse", songs.toString());
+                listSongAdapter = new ListSongAdapter(ListSongActivity.this, songs);
+                recyclerViewListSong.setAdapter(listSongAdapter);
+                recyclerViewListSong.setLayoutManager(new LinearLayoutManager(ListSongActivity.this));
+            }
+
+            @Override
+            public void onFailure(Call<List<Song>> call, Throwable t) {
+                Log.d("Song To Singer", "Call Api Error");
+            }
+        });
+    }
+
     private void  init(){
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -127,6 +211,18 @@ public class ListSongActivity extends AppCompatActivity {
             if (intent.hasExtra("album")) {
                 album = (Album) intent.getSerializableExtra("album");
                 Toast.makeText(this, album.getAlbumName(), Toast.LENGTH_SHORT).show();
+            }
+            if (intent.hasExtra("playlist")) {
+                playlist = (Playlist) intent.getSerializableExtra("playlist");
+                Toast.makeText(this, playlist.getPlaylistName(), Toast.LENGTH_SHORT).show();
+            }
+            if (intent.hasExtra("category")) {
+                playlist = (Playlist) intent.getSerializableExtra("category");
+                Toast.makeText(this, category.getCategoryName(), Toast.LENGTH_SHORT).show();
+            }
+            if (intent.hasExtra("singer")) {
+                singer = (Singer) intent.getSerializableExtra("singer");
+                Toast.makeText(this, singer.getSingerName(), Toast.LENGTH_SHORT).show();
             }
         }
     }

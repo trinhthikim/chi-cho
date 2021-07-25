@@ -43,7 +43,7 @@ public class HomeFragment extends Fragment {
         view = inflater.inflate(R.layout.fragment_home,container, false);
 
         anhxa();
-        Into();
+//        Into();
         setImg_avatar();
 //        setSliderViews();
 
@@ -62,6 +62,8 @@ public class HomeFragment extends Fragment {
 
 //        img_avatar.setBackgroundResource(R.drawable.zingmp3_1);
     }
+
+
     private void setImg_avatar() {
         ApiService.apiService.getDataUser().enqueue(new Callback<List<User>>() {
             @Override

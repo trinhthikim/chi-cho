@@ -35,7 +35,7 @@ public interface ApiService {
     @GET("Banner.php")
     Call<List<Banner>> getDataBanner();
 
-    @GET("GetUser.php")
+    @GET("User.php")
     Call<List<User>> getDataUser();
 
     @GET("AlbumSuggest.php")
@@ -56,4 +56,16 @@ public interface ApiService {
     @FormUrlEncoded
     @POST("SongToAlbum.php")
     Call<List<Song>> getDataSongToAlbum(@Field("idAlbum") String idAlbum);
+
+    @FormUrlEncoded
+    @POST("SongToPlaylist.php")
+    Call<List<Song>> getDataSongToPlaylist(@Field("idPlaylist") String idPlaylist);
+
+    @FormUrlEncoded
+    @POST("SongToCategor.php")
+    Call<List<Song>> getDataSongToCategory(@Field("idCategory") String idCategory);
+
+    @FormUrlEncoded
+    @POST("SongToSinger.php")
+    Call<List<Song>> getDataSongToSinger(@Field("idSinger") String idSinger);
 }

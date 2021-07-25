@@ -1,15 +1,19 @@
 package com.example.mainscreen2.Adapter;
 
 import android.content.Context;
+import android.content.Intent;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.mainscreen2.ListSongActivity;
 import com.example.mainscreen2.Model.Playlist;
 import com.example.mainscreen2.Model.Singer;
 import com.example.mainscreen2.R;
@@ -50,6 +54,17 @@ public class SingerAdapter extends RecyclerView.Adapter<SingerAdapter.ViewHolder
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             img_singer = itemView.findViewById(R.id.img_singer);
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Toast.makeText(context, "viewType", Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(context, ListSongActivity.class);
+                    Log.d("onClick id", singers.get(getPosition()).getSingerId());
+
+                    intent.putExtra("singer", singers.get(getPosition()));
+                    context.startActivity(intent);
+                }
+            });
         }
     }
 }

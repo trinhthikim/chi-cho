@@ -34,16 +34,17 @@ public class AlbumSuggestAdapter extends RecyclerView.Adapter<AlbumSuggestAdapte
     @Override
     public AlbumSuggestAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View albumView =LayoutInflater.from(parent.getContext()).inflate(R.layout.item_album_suggest, parent, false);
-        albumView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-//                Toast.makeText(context, "viewType", Toast.LENGTH_SHORT).show();
-                Intent intent = new Intent(context, ListSongActivity.class);
 
-                intent.putExtra("album", albums.get(0));
-                context.startActivity(intent);
-            }
-        });
+//        albumView.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Toast.makeText(context, "viewType", Toast.LENGTH_SHORT).show();
+//                Intent intent = new Intent(context, ListSongActivity.class);
+//
+//                intent.putExtra("album", albums.get(0));
+//                context.startActivity(intent);
+//            }
+//        });
         ViewHolder viewHolder = new ViewHolder(albumView);
         return viewHolder;
     }
@@ -68,6 +69,16 @@ public class AlbumSuggestAdapter extends RecyclerView.Adapter<AlbumSuggestAdapte
             super(itemView);
             img_album = itemView.findViewById(R.id.img_album);
             tv_nameAlbum = itemView.findViewById(R.id.tv_nameAlbum);
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Toast.makeText(context, "viewType", Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(context, ListSongActivity.class);
+
+                    intent.putExtra("album", albums.get(getPosition()));
+                    context.startActivity(intent);
+                }
+            });
         }
     }
 }

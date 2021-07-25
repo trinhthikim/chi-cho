@@ -5,9 +5,13 @@ import javax.annotation.Generated;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-@Generated("jsonschema2pojo")
-public class Playlist {
+import java.io.Serializable;
 
+@Generated("jsonschema2pojo")
+public class Playlist implements Serializable {
+    @SerializedName("Playlist_id")
+    @Expose
+    private String playlistId;
     @SerializedName("singer_id")
     @Expose
     private Object singerId;
@@ -27,11 +31,17 @@ public class Playlist {
     public Object getSingerId() {
         return singerId;
     }
-
     public void setSingerId(Object singerId) {
         this.singerId = singerId;
     }
 
+    public String getPlaylistId() {
+        return playlistId;
+    }
+
+    public void setPlaylistId(String playlistId) {
+        this.playlistId = playlistId;
+    }
     public String getPlaylistName() {
         return playlistName;
     }

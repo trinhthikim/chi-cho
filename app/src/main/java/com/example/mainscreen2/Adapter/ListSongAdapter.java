@@ -1,6 +1,7 @@
 package com.example.mainscreen2.Adapter;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,31 +15,47 @@ import com.example.mainscreen2.Model.Song;
 import com.example.mainscreen2.R;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class ListSongAdapter extends RecyclerView.Adapter<ListSongAdapter.ViewHolder>{
-    Context context;
-    ArrayList<Song> songs;
+    private Context context;
+    private List<Song> songs;
 
-    public ListSongAdapter(Context context, ArrayList<Song> songs) {
+    public ListSongAdapter(Context context, List<Song> songs) {
         this.context = context;
         this.songs = songs;
     }
 
     @NonNull
     @Override
-    public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        LayoutInflater inflater = LayoutInflater.from(context);
-        View view = inflater.inflate(R.layout.dong_list_song, parent, false);
+//    public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+//        LayoutInflater inflater = LayoutInflater.from(context);
+//        View view = inflater.inflate(R.layout.dong_list_song, parent, false);
+//
+//        return new ViewHolder(view);
+//    }
+    public ListSongAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+//        LayoutInflater inflater = LayoutInflater.from(parent.getContext());
+//        View view = inflater.inflate(R.layout.dong_list_song, parent, false);
+        View view =LayoutInflater.from(parent.getContext()).inflate(R.layout.dong_list_song, parent, false);
 
-        return new ViewHolder(view);
+        ListSongAdapter.ViewHolder viewHolder = new ListSongAdapter.ViewHolder(view);
+        Log.d("list song adapter", songs.toString());
+        return viewHolder;
+//        return new ViewHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull ListSongAdapter.ViewHolder holder, int position) {
         Song song = songs.get(position);
+        Log.d("song 1", song.getSingerName());
         holder.txtcasi.setText(song.getSingerName());
+        Log.d("name singer", song.getSingerName());
         holder.txtnamesong.setText(song.getSongName());
+        Log.d("name song", song.getSongName());
         holder.txtindex.setText(position + 1 + "");
+        Log.d("index", position + 1 + "");
+
     }
 
     @Override
@@ -47,9 +64,11 @@ public class ListSongAdapter extends RecyclerView.Adapter<ListSongAdapter.ViewHo
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder{
-        TextView txtindex, txtnamesong, txtcasi;
-        ImageView imgluotyeuthich;
-        public ViewHolder(View itemView){
+        public TextView txtindex;
+        public TextView txtnamesong;
+        public TextView txtcasi;
+        public ImageView imgluotyeuthich;
+        public ViewHolder(@NonNull View itemView){
             super(itemView);
             txtindex = itemView.findViewById(R.id.textviewlistindex);
             txtcasi = itemView.findViewById(R.id.textviewnamesinger);
