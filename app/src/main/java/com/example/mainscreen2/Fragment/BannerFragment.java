@@ -37,7 +37,6 @@ public class BannerFragment extends Fragment {
         anhxa();
         Into();
         getData();
-
         return view;
     }
 

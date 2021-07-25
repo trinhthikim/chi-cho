@@ -1,6 +1,7 @@
 package com.example.mainscreen2.Adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,7 +12,9 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.mainscreen2.ListSongActivity;
 import com.example.mainscreen2.Model.Song;
+import com.example.mainscreen2.PlayMusicActivity;
 import com.example.mainscreen2.R;
 
 import java.util.ArrayList;
@@ -74,6 +77,14 @@ public class ListSongAdapter extends RecyclerView.Adapter<ListSongAdapter.ViewHo
             txtcasi = itemView.findViewById(R.id.textviewnamesinger);
             txtnamesong = itemView.findViewById(R.id.textviewnamesong);
             imgluotyeuthich = itemView.findViewById(R.id.imageviewlikelistsong);
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent = new Intent(context, PlayMusicActivity.class);
+                    intent.putExtra("playsong", songs.get(getPosition()));
+                    context.startActivity(intent);
+                }
+            });
         }
     }
 

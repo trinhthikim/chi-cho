@@ -2,12 +2,17 @@
 
 package com.example.mainscreen2.Model;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 import javax.annotation.Generated;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
+import java.io.Serializable;
+
 @Generated("jsonschema2pojo")
-public class Song {
+public class Song implements Parcelable {
 
     @SerializedName("Song_id")
     @Expose
@@ -131,4 +136,50 @@ public class Song {
         this.singerName = singerName;
     }
 
+
+    public Song(Parcel in){
+        songId = in.readString();
+        albumId = in.readString();
+        playlistId = in.readString();
+        categoryId = in.readString();
+        songName = in.readString();
+        songImageUrl = in.readString();
+        singerId = in.readString();
+        songLink = in.readString();
+        songLikes = in.readString();
+        userId = in.readString();
+        singerName = in.readString();
+    }
+
+    public static final Creator<Song> CREATOR = new Creator<Song>() {
+        @Override
+        public Song createFromParcel(Parcel source) {
+            return new Song(source);
+        }
+
+        @Override
+        public Song[] newArray(int size) {
+            return new Song[size];
+        }
+    };
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeString(songId);
+        dest.writeString(albumId);
+        dest.writeString(playlistId);
+        dest.writeString(categoryId);
+        dest.writeString(songName);
+        dest.writeString(songImageUrl);
+        dest.writeString(singerId);
+        dest.writeString(songLink);
+        dest.writeString(songLikes);
+        dest.writeString(userId);
+        dest.writeString(singerName);
+    }
 }

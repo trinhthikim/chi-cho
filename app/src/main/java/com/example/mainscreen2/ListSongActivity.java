@@ -108,6 +108,7 @@ public class ListSongActivity extends AppCompatActivity {
                 listSongAdapter = new ListSongAdapter(ListSongActivity.this, songs);
                 recyclerViewListSong.setAdapter(listSongAdapter);
                 recyclerViewListSong.setLayoutManager(new LinearLayoutManager(ListSongActivity.this));
+                eventClick();
             }
 
             @Override
@@ -129,6 +130,7 @@ public class ListSongActivity extends AppCompatActivity {
                 listSongAdapter = new ListSongAdapter(ListSongActivity.this, songs);
                 recyclerViewListSong.setAdapter(listSongAdapter);
                 recyclerViewListSong.setLayoutManager(new LinearLayoutManager(ListSongActivity.this));
+                eventClick();
             }
 
             @Override
@@ -148,6 +150,7 @@ public class ListSongActivity extends AppCompatActivity {
                 listSongAdapter = new ListSongAdapter(ListSongActivity.this, songs);
                 recyclerViewListSong.setAdapter(listSongAdapter);
                 recyclerViewListSong.setLayoutManager(new LinearLayoutManager(ListSongActivity.this));
+                eventClick();
             }
 
             @Override
@@ -169,6 +172,7 @@ public class ListSongActivity extends AppCompatActivity {
                 listSongAdapter = new ListSongAdapter(ListSongActivity.this, songs);
                 recyclerViewListSong.setAdapter(listSongAdapter);
                 recyclerViewListSong.setLayoutManager(new LinearLayoutManager(ListSongActivity.this));
+                eventClick();
             }
 
             @Override
@@ -189,7 +193,7 @@ public class ListSongActivity extends AppCompatActivity {
         });
         collapsingToolbarLayout.setExpandedTitleColor(Color.WHITE);
         collapsingToolbarLayout.setCollapsedTitleTextColor(Color.WHITE);
-
+        floatingActionButton.setEnabled(false);
     }
 
     private void anhxa(){
@@ -223,4 +227,18 @@ public class ListSongActivity extends AppCompatActivity {
             }
         }
     }
+
+    private void eventClick(){
+        floatingActionButton.setEnabled(true);
+        floatingActionButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(ListSongActivity.this, PlayMusicActivity.class);
+                intent.putExtra("playListSong", songs);
+                startActivity(intent);
+            }
+        });
+    }
+
+
 }

@@ -12,7 +12,8 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MainScreen2"
         android:usesCleartextTraffic="true">
-        <activity android:name=".ListSongActivity"></activity>
+        <activity android:name=".PlayMusicActivity"></activity>
+        <activity android:name=".ListSongActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
