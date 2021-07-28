@@ -67,4 +67,16 @@ public interface ApiService {
 
     @POST("User.php")
     Call<User> getDataUser(@Body User user);
+
+    @POST("CreatePlaylist.php")
+    Call<Playlist> createPlayList(@Body Playlist playlist);
+
+    @POST("Playlist.php")
+    Call<List<Playlist>> loadPlayListUser(@Body User user);
+
+    @POST("resetPassword.php")
+    Call<User> resetPassword(@Body User user);
+
+    @POST("resetPassword.php")
+    Call<User> resetName(@Body User user);
 }

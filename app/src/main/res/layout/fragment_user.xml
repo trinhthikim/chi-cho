@@ -21,24 +21,21 @@
                 android:layout_marginTop="15dp"
                 android:orientation="horizontal">
 
-                <!--                avatar-->
-                <ImageView
+                <de.hdodenhof.circleimageview.CircleImageView
                     android:id="@+id/img_avatar"
-                    android:layout_width="58dp"
-                    android:layout_height="58dp"
-                    android:scaleType="fitXY"
-                    android:src="@drawable/avatar"></ImageView>
+                    android:layout_width="55dp"
+                    android:layout_height="55dp">
+                </de.hdodenhof.circleimageview.CircleImageView>
 
-                <SearchView
-                    android:id="@+id/searchView"
-                    android:layout_width="match_parent"
+                <TextView
+                    android:layout_marginLeft="30dp"
+                    android:id="@+id/name_user"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_centerHorizontal="true"
-                    android:layout_marginLeft="5dp"
-                    android:background="@drawable/searchview_rounded"
-                    android:iconifiedByDefault="false"
-                    android:padding="5dp"
-                    android:queryHint="Tìm kiếm"></SearchView>
+                    android:text="Trinh Kim"
+                    android:layout_gravity="center"
+                    android:textSize="16sp"
+                    android:textColor="@color/black"></TextView>
 
             </LinearLayout>
 
@@ -139,7 +136,7 @@
                 android:layout_marginTop="10dp"
                 android:gravity="center"
                 android:orientation="horizontal"
-                android:id="@+id/create_playlist">
+                >
 
                 <View
                     android:layout_width="40dp"
@@ -153,7 +150,8 @@
                     android:layout_marginLeft="5dp"
                     android:text="Tạo playlist"
                     android:textColor="#0E0E0E"
-                    android:textSize="15dp"></TextView>>
+                    android:textSize="15dp"
+                    android:id="@+id/create_playlist"></TextView>>
             </LinearLayout>
 
 
@@ -170,7 +168,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="10dp"
                     android:layout_marginTop="30dp"
-                    android:text="Playlist gợi ý"
+                    android:text="Playlist của bạn"
                     android:textColor="#0E0E0E"
                     android:textSize="18dp"
                     android:textStyle="bold"></TextView>
@@ -179,18 +177,11 @@
 
             <!--          chinh sua thong tin ca nhan-->
 
-            <LinearLayout
-                android:layout_width="173dp"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
 
-                <ImageView
-                    android:layout_width="153dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="10dp"
-                    android:src="@drawable/list1"></ImageView>
-
-            </LinearLayout>
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvSong"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"></androidx.recyclerview.widget.RecyclerView>
 
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -221,7 +212,7 @@
                     android:layout_weight="1"
                     android:gravity="center"
                     android:orientation="horizontal"
-                    android:id="@+id/edt_name">
+                    >
 
                     <View
                         android:id="@+id/username"
@@ -231,6 +222,7 @@
                         android:scaleType="fitXY"></View>
 
                     <TextView
+                        android:id="@+id/edt_name"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="5dp"
@@ -245,7 +237,7 @@
                     android:layout_weight="1"
                     android:gravity="center"
                     android:orientation="horizontal"
-                    android:id="@+id/edt_pass">
+                    >
 
                     <View
                         android:id="@+id/edit_pass"
@@ -255,6 +247,7 @@
                         android:scaleType="fitXY"></View>
 
                     <TextView
+                        android:id="@+id/edt_pass"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="5dp"
