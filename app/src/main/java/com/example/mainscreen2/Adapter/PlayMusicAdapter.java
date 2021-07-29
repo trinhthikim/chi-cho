@@ -21,8 +21,8 @@ public class PlayMusicAdapter extends RecyclerView.Adapter<PlayMusicAdapter.View
     ArrayList<Song> songs;
 
     public PlayMusicAdapter(Context context, ArrayList<Song> songs) {
-        this.songs=songs;
-        this.context=context;
+        this.songs = songs;
+        this.context = context;
     }
 
     @NonNull

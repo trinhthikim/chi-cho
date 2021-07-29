@@ -68,4 +68,11 @@ public interface ApiService {
     @FormUrlEncoded
     @POST("SongToSinger.php")
     Call<List<Song>> getDataSongToSinger(@Field("idSinger") String idSinger);
+
+    @FormUrlEncoded
+    @POST("UpdateLike.php")
+    Call<List<Song>> updateLike(@Field("luotthich") String luotthich, @Field("idSong") String idSong);
+
+    @POST("SearchSong.php")
+    Call<List<Song>> searchSong(@Field("keywork") String keywork);
 }

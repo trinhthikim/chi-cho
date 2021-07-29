@@ -8,10 +8,12 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.mainscreen2.API.ApiService;
 import com.example.mainscreen2.ListSongActivity;
 import com.example.mainscreen2.Model.Song;
 import com.example.mainscreen2.PlayMusicActivity;
@@ -19,6 +21,10 @@ import com.example.mainscreen2.R;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class ListSongAdapter extends RecyclerView.Adapter<ListSongAdapter.ViewHolder>{
     private Context context;
@@ -77,6 +83,23 @@ public class ListSongAdapter extends RecyclerView.Adapter<ListSongAdapter.ViewHo
             txtcasi = itemView.findViewById(R.id.textviewnamesinger);
             txtnamesong = itemView.findViewById(R.id.textviewnamesong);
             imgluotyeuthich = itemView.findViewById(R.id.imageviewlikelistsong);
+            imgluotyeuthich.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    imgluotyeuthich.setImageResource(R.drawable.iconloved);
+                    ApiService.apiService.updateLike("1", songs.get(getPosition()).getSongId() ).enqueue(new Callback<List<Song>>() {
+                        @Override
+                        public void onResponse(Call<List<Song>> call, Response<List<Song>> response) {
+                            Toast.makeText(context, "Liked", Toast.LENGTH_SHORT).show();
+                        }
+                        @Override
+                        public void onFailure(Call<List<Song>> call, Throwable t) {
+                            Toast.makeText(context, "Fail", Toast.LENGTH_SHORT).show();
+                        }
+                    });
+                    imgluotyeuthich.setEnabled(false);
+                }
+            });
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {

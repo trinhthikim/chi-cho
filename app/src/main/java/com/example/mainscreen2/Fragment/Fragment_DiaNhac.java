@@ -37,8 +37,8 @@ public class Fragment_DiaNhac extends Fragment {
 
     }
 
-    public void Playnhac(String hinhanh) {
-        Log.d("'hinh anh'", hinhanh);
-        Picasso.with(getContext()).load(hinhanh).centerCrop().fit().into(circleImageView);
+    public void playNhac(String hinhAnh){
+        Picasso.with(getContext()).load(hinhAnh).into(circleImageView);
+
     }
 }

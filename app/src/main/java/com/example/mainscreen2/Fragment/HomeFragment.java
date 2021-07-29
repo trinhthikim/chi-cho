@@ -7,6 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.SearchView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -37,6 +38,7 @@ public class HomeFragment extends Fragment {
     View view;
     private SliderLayout auto_slider;
     private ImageView img_avatar;
+    private SearchView searchView;
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -53,6 +55,7 @@ public class HomeFragment extends Fragment {
     private void anhxa() {
 //        auto_slider = view.findViewById(R.id.auto_slider);
         img_avatar = view.findViewById(R.id.img_avatar);
+        searchView = view.findViewById(R.id.searchView);
     }
 
     private void Into() {
