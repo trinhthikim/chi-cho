@@ -18,6 +18,7 @@ import retrofit2.Call;
 import retrofit2.converter.gson.GsonConverterFactory;
 import retrofit2.Retrofit;
 import retrofit2.http.Body;
+import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
 import retrofit2.http.POST;
@@ -79,4 +80,27 @@ public interface ApiService {
 
     @POST("resetPassword.php")
     Call<User> resetName(@Body User user);
+
+    @FormUrlEncoded
+    @POST("SongToAlbum.php")
+    Call<List<Song>> getDataSongToAlbum(@Field("idAlbum") String idAlbum);
+
+    @FormUrlEncoded
+    @POST("SongToPlaylist.php")
+    Call<List<Song>> getDataSongToPlaylist(@Field("idPlaylist") String idPlaylist);
+
+    @FormUrlEncoded
+    @POST("SongToCategory.php")
+    Call<List<Song>> getDataSongToCategory(@Field("idCategory") String idCategory);
+
+    @FormUrlEncoded
+    @POST("SongToSinger.php")
+    Call<List<Song>> getDataSongToSinger(@Field("idSinger") String idSinger);
+
+    @FormUrlEncoded
+    @POST("UpdateLike.php")
+    Call<String> updateLike(@Field("luotthich") String luotthich, @Field("idSong") String idSong);
+
+    @POST("SearchSong.php")
+    Call<List<Song>> searchSong(@Field("keywork") String keywork);
 }

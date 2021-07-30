@@ -44,7 +44,9 @@ public class PlaylistFragment extends Fragment {
             @Override
             public void onResponse(Call<List<Playlist>> call, Response<List<Playlist>> response) {
                 Log.d("Playlist", "Call Api Success");
+
                 playlists = (ArrayList<Playlist>) response.body();
+                Log.d("Playlist", playlists.toString());
                 adapter = new PlaylistAdapter(playlists, getContext());
                 LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false);
                 linearLayoutManager.scrollToPosition(0);

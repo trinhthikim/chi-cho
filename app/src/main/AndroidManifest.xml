@@ -12,6 +12,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MainScreen2"
         android:usesCleartextTraffic="true">
+        <!--        <activity android:name=".SearchSongActivity"></activity>-->
+        <activity android:name=".PlayMusicActivity" />
+        <activity android:name=".ListSongActivity" />
         <activity android:name=".SignupActivity" />
         <activity android:name=".MainActivity" />
         <activity android:name=".LoginActivity">

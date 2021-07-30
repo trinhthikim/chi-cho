@@ -6,6 +6,7 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentStatePagerAdapter;
 
 import com.example.mainscreen2.Fragment.HomeFragment;
+import com.example.mainscreen2.Fragment.SearchFragment;
 import com.example.mainscreen2.Fragment.SettingFragment;
 import com.example.mainscreen2.Fragment.UserFragment;
 
@@ -22,8 +23,10 @@ public class ViewPagerAdapter extends FragmentStatePagerAdapter {
             case 0:
                 return new HomeFragment();
             case 1:
-                return new UserFragment();
+                return new SearchFragment();
             case 2:
+                return new UserFragment();
+            case 3:
                 return new SettingFragment();
             default:
                 return new HomeFragment();

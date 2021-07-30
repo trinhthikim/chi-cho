@@ -1,16 +1,19 @@
 package com.example.mainscreen2.Adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
+import com.example.mainscreen2.ListSongActivity;
 import com.example.mainscreen2.Model.Category;
 import com.example.mainscreen2.Model.Playlist;
 import com.example.mainscreen2.R;
@@ -54,6 +57,16 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.ViewHo
             super(itemView);
             img_category = itemView.findViewById(R.id.img_category);
             tv_namecategory = itemView.findViewById(R.id.tv_namecategory);
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+//                    Toast.makeText(context, "viewType", Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(context, ListSongActivity.class);
+
+                    intent.putExtra("category", categories.get(getPosition()));
+                    context.startActivity(intent);
+                }
+            });
         }
     }
 }

@@ -69,11 +69,14 @@ public class MainActivity extends AppCompatActivity{
                     case R.id.action_home:
                        viewPager.setCurrentItem(0);
                         break;
-                    case R.id.action_user:
+                    case R.id.action_search:
                         viewPager.setCurrentItem(1);
                         break;
-                    case R.id.action_setting:
+                    case R.id.action_user:
                         viewPager.setCurrentItem(2);
+                        break;
+                    case R.id.action_setting:
+                        viewPager.setCurrentItem(3);
                         break;
                 }
                 return true;
@@ -127,7 +130,7 @@ public class MainActivity extends AppCompatActivity{
 
             @Override
             public void onFailure(Call<User> call, Throwable t) {
-                Toast.makeText(MainActivity.this, t.getLocalizedMessage(),Toast.LENGTH_SHORT).show();
+//                Toast.makeText(MainActivity.this, t.getLocalizedMessage(),Toast.LENGTH_SHORT).show();
                 Log.e("ID", "get data user fail: " + t.getLocalizedMessage());
             }
         });

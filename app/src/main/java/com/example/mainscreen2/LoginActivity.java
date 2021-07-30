@@ -78,7 +78,7 @@ public class LoginActivity extends AppCompatActivity{
             @Override
             public void onResponse(Call<User> call, Response<User> response) {
                 User user = response.body();
-                Toast.makeText(LoginActivity.this, user.getUserId(), Toast.LENGTH_SHORT).show();
+//                Toast.makeText(LoginActivity.this, user.getUserId(), Toast.LENGTH_SHORT).show();
                 if(!user.getUserId().equals("0")){
                     Intent intent = new Intent(LoginActivity.this, MainActivity.class);
                     intent.putExtra("ID", user.getUserId());

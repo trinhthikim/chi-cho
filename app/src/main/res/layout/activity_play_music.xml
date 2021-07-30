@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    android:weightSum="10"
+    android:orientation="vertical"
+    tools:context=".ListSongActivity"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/center_color">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbarplaymusic"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        tools:ignore="MissingConstraints">
+
+    </androidx.appcompat.widget.Toolbar>
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/viewpaperplaymusic"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="8">
+
+    </androidx.viewpager.widget.ViewPager>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        android:layout_weight="2">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:weightSum="10">
+            <TextView
+                android:id="@+id/tvTimeRun"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:gravity="center"
+                android:text="00:00"
+                android:textColor="#fff"
+                android:textSize="20dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/btnPlay"
+                app:layout_constraintHorizontal_bias="0.039"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.809" />
+
+            <SeekBar
+                android:id="@+id/seekBar"
+                android:layout_width="240dp"
+                android:layout_height="70dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/tvTimeAll"
+                app:layout_constraintHorizontal_bias="0.1"
+                app:layout_constraintStart_toEndOf="@+id/tvTimeRun"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.808"></SeekBar>
+
+            <TextView
+                android:id="@+id/tvTimeAll"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:layout_alignParentRight="true"
+                android:gravity="center"
+                android:text="00:00"
+                android:textColor="#fff"
+                android:textSize="20dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/seekBar"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.809" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:gravity="center">
+            <ImageButton
+                android:id="@+id/imageButton"
+                android:layout_marginRight="20dp"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_alignParentLeft="true"
+                android:adjustViewBounds="true"
+                android:background="@null"
+                android:padding="10dp"
+                android:scaleType="fitCenter"
+                android:src="@drawable/iconsuffle"
+                android:tint="#fff"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/btnPreview"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/seekBar" />
+
+
+            <ImageButton
+                android:id="@+id/btnPreview"
+                android:layout_marginRight="20dp"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:adjustViewBounds="true"
+                android:background="@drawable/cricle_while"
+                android:padding="10dp"
+                android:scaleType="fitCenter"
+                android:src="@drawable/iconpreview"
+                android:tint="#fff"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/btnPlay"
+                app:layout_constraintStart_toEndOf="@+id/imageButton"
+                app:layout_constraintTop_toBottomOf="@+id/seekBar" />
+
+            <ImageButton
+                android:id="@+id/btnPlay"
+                android:layout_marginRight="20dp"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:adjustViewBounds="true"
+                android:background="@drawable/cricle_while"
+                android:padding="10dp"
+                android:scaleType="fitCenter"
+                android:src="@drawable/iconplay"
+                android:tint="#fff"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/btnNext"
+                app:layout_constraintStart_toEndOf="@+id/btnPreview"
+                app:layout_constraintTop_toBottomOf="@+id/seekBar" />
+
+            <ImageButton
+                android:id="@+id/btnNext"
+                android:layout_marginRight="20dp"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:adjustViewBounds="true"
+                android:background="@drawable/cricle_while"
+                android:padding="10dp"
+                android:scaleType="fitCenter"
+                android:src="@drawable/iconnext"
+                android:tint="#fff"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/imageButton5"
+                app:layout_constraintStart_toEndOf="@+id/btnPlay"
+                app:layout_constraintTop_toBottomOf="@+id/seekBar" />
+
+            <ImageButton
+                android:id="@+id/imageButton5"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_alignParentRight="true"
+                android:adjustViewBounds="true"
+                android:background="@null"
+                android:padding="10dp"
+                android:scaleType="fitCenter"
+                android:src="@drawable/iconrepeat"
+                android:tint="#fff"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.78"
+                app:layout_constraintStart_toEndOf="@+id/btnNext"
+                app:layout_constraintTop_toBottomOf="@+id/seekBar"
+                app:srcCompat="@drawable/iconrepeat" />
+
+        </LinearLayout>
+    </LinearLayout>
+
+
+
+
+
+
+
+</LinearLayout>

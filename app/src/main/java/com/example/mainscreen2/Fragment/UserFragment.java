@@ -112,7 +112,7 @@ public class UserFragment extends Fragment {
         edt_name = view.findViewById(R.id.edt_name);
         edt_pass = view.findViewById(R.id.edt_pass);
         logout = view.findViewById(R.id.logout);
-        rvSong = view.findViewById(R.id.rvSong);
+        rvSong = view.findViewById(R.id.rvSongPlaylist);
     }
 
     private void setImg_avatar() {
@@ -186,7 +186,7 @@ public class UserFragment extends Fragment {
 
             @Override
             public void onFailure(Call<User> call, Throwable t) {
-                Toast.makeText(getContext(), playlist.toString(), Toast.LENGTH_SHORT).show();
+//                Toast.makeText(getContext(), playlist.toString(), Toast.LENGTH_SHORT).show();
             }
         });
     }
@@ -238,7 +238,7 @@ public class UserFragment extends Fragment {
 
             @Override
             public void onFailure(Call<User> call, Throwable t) {
-                Toast.makeText(getContext(), playlist.toString(), Toast.LENGTH_SHORT).show();
+//                Toast.makeText(getContext(), playlist.toString(), Toast.LENGTH_SHORT).show();
             }
         });
     }
@@ -284,14 +284,14 @@ public class UserFragment extends Fragment {
         ApiService.apiService.createPlayList(playlist).enqueue(new Callback<Playlist>() {
             @Override
             public void onResponse(Call<Playlist> call, Response<Playlist> response) {
-                playlist=response.body();
+                playlist = response.body();
                 Log.d("PlaylistUser", "call api lan 2");
                 getData();
             }
 
             @Override
             public void onFailure(Call<Playlist> call, Throwable t) {
-                Toast.makeText(getContext(), playlist.toString(), Toast.LENGTH_SHORT).show();
+//                Toast.makeText(getContext(), playlist.toString(), Toast.LENGTH_SHORT).show();
             }
         });
     }
